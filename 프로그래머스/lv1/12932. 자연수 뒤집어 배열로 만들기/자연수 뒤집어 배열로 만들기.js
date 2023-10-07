@@ -1,3 +1,10 @@
 function solution(n) {
-    return (n+'').split('').map(v => parseInt(v)).reverse();
+    let arr = [];
+    
+    do {
+        arr.push(n%10);
+        n = Math.floor(n/10);
+    } while(n>0)
+    
+    return arr;
 }
