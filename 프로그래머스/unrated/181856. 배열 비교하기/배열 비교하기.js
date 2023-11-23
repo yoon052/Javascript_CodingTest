@@ -1,10 +1,11 @@
-function solution(arr1, arr2) {
-    var answer = 0;
-    if(arr1.length !== arr2.length){
-        return arr1.length > arr2.length ? 1 : -1
-    } else if(arr1.reduce((a,b)=>a+b,0) === arr2.reduce((a,b)=>a+b,0)) {
-        return 0;
-    } else {
-        return arr1.reduce((a,b)=>a+b,0) > arr2.reduce((a,b)=>a+b,0) ? 1 : -1
+const solution = (arr1, arr2) => {
+    return arr1.length !== arr2.length ? compare(arr1.length, arr2.length) : compare(arr1, arr2, "reduce");
+}
+
+const compare = (a, b, option) => {
+    if(option === "reduce"){
+        a = a.reduce((x,y) => x + y, 0);
+        b = b.reduce((x,y) => x + y, 0);
     }
+    return a > b ? 1 : a < b ? -1 : 0;
 }
