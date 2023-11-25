@@ -1,3 +1,3 @@
 function solution(my_string, n) {
-    return [...my_string].map(v => v.repeat(n)).join('');
+    return my_string.split('').reduce((a,c) => a+c.repeat(n), '');
 }
